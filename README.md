@@ -13,7 +13,6 @@ flex-data.js     catálogo: departamentos, categorias, produtos
 flex-app.js      router por hash + render das telas da loja
 assets/flex/     logo e imagens de produto
 assets/landing/  fotos da fachada e do estoque
-vercel.json      cleanUrls (/loja além de /loja.html)
 ```
 
 A landing foi convertida do pacote do design system para HTML/CSS estático: o
@@ -44,6 +43,10 @@ Importar o repositório e deixar tudo no padrão:
 - Install Command: vazio
 
 A Vercel serve o `index.html` da raiz como home. Cada push na `main` publica.
+
+Sem `vercel.json`: com `cleanUrls: true` a raiz passa a responder 404 nesse
+tipo de deploy estático (testado em deploy real). Os links internos usam
+`loja.html`, então não há o que ganhar com URL limpa aqui.
 
 Os links "Acessar Loja" apontam para `loja.html` neste repo; para mandar o
 tráfego para a loja atual, trocar pelo endereço dela no `index.html`.
