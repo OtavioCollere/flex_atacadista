@@ -114,13 +114,16 @@ img{max-width:100%;display:block}
 }
 
 /* ---------- diferenciais ---------- */
-.why{background:var(--surface-alt);padding:96px 0}
+.why{position:relative;background:var(--ink);padding:96px 0;overflow:hidden}
+.why::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(237,236,232,.16) 1px,transparent 1px);background-size:16px 16px;-webkit-mask-image:radial-gradient(ellipse at center,transparent 45%,#000 100%);mask-image:radial-gradient(ellipse at center,transparent 45%,#000 100%);pointer-events:none}
 .why .wrap{position:relative}
 .why .label-vertical{position:absolute;left:var(--container-pad);top:4px}
 .why .inner{padding-left:56px;display:flex;flex-direction:column;gap:40px}
-.why h2{max-width:520px}
+.why h2{max-width:520px;color:#fff}
 .why .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
-.why .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-card);padding:26px;display:flex;flex-direction:column;gap:10px}
+.why .card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-card);padding:26px;display:flex;flex-direction:column;gap:10px;overflow:hidden;transition:transform var(--motion-base) var(--motion-ease),box-shadow var(--motion-base) var(--motion-ease)}
+.why .card::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--brand-red)}
+.why .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.25)}
 .why .card .n{font-family:var(--font-heading);font-weight:700;font-size:1.75rem;color:var(--brand-red);letter-spacing:var(--tracking-heading)}
 .why .card p{font-size:.9375rem}
 @media (max-width:760px){
@@ -132,7 +135,9 @@ img{max-width:100%;display:block}
 /* ---------- quem somos ---------- */
 .about{background:var(--surface);padding:96px 0;clip-path:var(--corte-x)}
 .about .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.about .vis{min-width:0}
+.about .vis{position:relative;min-width:0}
+.about .vis::before{content:"";position:absolute;right:-20px;bottom:-20px;width:55%;height:55%;background-image:radial-gradient(var(--ink) 1.2px,transparent 1.2px);background-size:14px 14px;opacity:.28}
+.about .vis img{position:relative}
 /* a foto do estoque é vertical: recorte paisagem tira o rodapé sujo do original */
 .about .vis img{width:100%;aspect-ratio:4/3;max-height:400px;object-fit:cover;object-position:center 40%;background:var(--surface-alt);border:1px solid var(--border)}
 .about .copy{display:flex;flex-direction:column;gap:20px;min-width:0;max-width:520px}
@@ -171,7 +176,7 @@ img{max-width:100%;display:block}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
 /* ---------- o que distribuímos ---------- */
-.cat{padding:96px 0}
+.cat{background:var(--surface-alt);padding:96px 0}
 .cat-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:24px;margin-bottom:48px}
 .cat-head h2{max-width:560px;margin-top:8px}
 .depts{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 32px}
@@ -180,7 +185,7 @@ img{max-width:100%;display:block}
 .dept h3 a:hover{color:var(--brand-red)}
 .dept p{font-size:.9375rem}
 .dept .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
-.dept .chips a{font-size:.8125rem;line-height:1;color:var(--ink-soft);border:1px solid var(--border);border-radius:999px;padding:7px 12px}
+.dept .chips a{font-size:.8125rem;line-height:1;color:var(--ink);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:7px 12px}
 .dept .chips a:hover{border-color:var(--ink);color:var(--ink)}
 .dept-cta{background:var(--brand-red);border-top-color:var(--brand-red);color:#fff;padding:24px;gap:12px}
 .dept-cta h3,.dept-cta p{color:#fff}
